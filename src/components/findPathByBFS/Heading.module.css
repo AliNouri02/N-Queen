@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Heading{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50px;
+    padding: 12px;
+}
+.Heading button {
+    cursor: pointer;
+    margin: 9px;
+    width: 100px;
+    height: 32px;
+    background: none;
+    border: 1px solid #dbd6d6;
+    color: white !important;
+    font-weight: bold;
+}

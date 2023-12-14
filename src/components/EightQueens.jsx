@@ -22,13 +22,13 @@ const EightQueens = () => {
     }
 
     // Check if there is no queen in the left upper diagonal
-    for (let i = row, j = col; i >= 0 && j >= 0; i--, j--) {
-      if (board[i][j]) return false;
+    for (let y = row, x = col; y >= 0 && x >= 0; y--, x--) {
+      if (board[y][x]) return false;
     }
 
     // Check if there is no queen in the right upper diagonal
-    for (let i = row, j = col; i >= 0 && j < 8; i--, j++) {
-      if (board[i][j]) return false;
+    for (let y = row, x = col; y >= 0 && x < 8; y--, x++) {
+      if (board[y][x]) return false;
     }
 
     return true;
@@ -68,36 +68,6 @@ const EightQueens = () => {
     }
     return true;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  // function canPlace(row, col) {
-  //   console.log(array);
-  //   console.log(" array[row] === array[col]", array[row], array[col]);
-  //   console.log(
-  //     "Math.abs(array[row] - array[col]), Math.abs(row - col)",
-  //     Math.abs(array[row] - array[col]),
-  //     Math.abs(row - col)
-  //   );
-
-  //   if (
-  //     array[row] === array[col] ||
-  //     Math.abs(array[row] - array[col]) === Math.abs(row - col)
-  //   )
-  //     return true;
-
-  //   return false;
-  // }
 
   const isSafeToPlaceQueen = (row, col) => {
     // Check if there is no queen in the same row

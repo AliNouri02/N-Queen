@@ -1,0 +1,14 @@
+.table td {
+    
+    border: 1px solid black;
+    width: 10px;
+    height: 10px; 
+  }
+  .table{
+    border-collapse: collapse;
+      width: 1000px;
+      margin: 10px auto;
+  }
+h2{
+  text-align: center;
+}

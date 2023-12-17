@@ -40,7 +40,7 @@ const Grid = (props) => {
     setArray2D(arr);
   }, []);
 
-  console.log("Hi Mehedi", array2D);
+  console.log("Hi Ali", array2D);
 
   const getGridNumberHandler = (i, j, event, check) => {
     if (check === "start") {
@@ -77,6 +77,7 @@ const Grid = (props) => {
 
     return true;
   }
+
   function BFS(si, sj, ei, ej) {
     // dricection
     console.log("BFS Call");
@@ -184,7 +185,7 @@ const Grid = (props) => {
 
   return (
     <React.Fragment>
-      <h2>Breadth-First Search</h2>
+      <h2 className="my-4 font-medium text-white">Breadth-First Search</h2>
       {gridDraw}
     </React.Fragment>
   );

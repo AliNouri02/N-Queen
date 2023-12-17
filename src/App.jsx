@@ -92,12 +92,12 @@ function App() {
           >
             N Queen Problem
           </Link>
-          <Link
+          {/* <Link
             className="shadow-sky-500 shadow-2xl p-4 rounded border-2 text-white font-semibold hover:scale-105 duration-300 transition-transform"
             to={"/fib"}
           >
             Fibonacci
-          </Link>
+          </Link> */}
           <Link
             className="shadow-sky-500 shadow-2xl p-4 rounded border-2 text-white font-semibold hover:scale-105 duration-300 transition-transform"
             to={"/Floyd"}
@@ -114,7 +114,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/eightQueens" element={<EightQueens />} />
-            <Route path="/fib" element={<FibonacciCalculator />} />
+            {/* <Route path="/fib" element={<FibonacciCalculator />} /> */}
             <Route path="/Floyd" element={<FloydWarshallApp graph={graph} />} />
             <Route path="/bfs-find-path" element={<BFSComponent />} />
           </Routes>

@@ -39,7 +39,47 @@ floydWarshall(graph) {
 }
 
 `;
+const pythonCode = `
+def floyd_warshall(graph):
+    # Get the number of vertices in the graph
+    V = len(graph)
 
+    # Create a 2D list 'dist' to store the shortest distances between every pair of vertices
+    dist = [[0] * V for _ in range(V)]
+
+    # Initialize 'dist' with the initial values from the input graph
+    for i in range(V):
+        for j in range(V):
+            dist[i][j] = graph[i][j]
+
+    # Iterate over all vertices to find the shortest paths
+    for k in range(V):
+        # Iterate over all pairs of vertices (i, j) and update the shortest path if necessary
+        for i in range(V):
+            for j in range(V):
+                # Check if the path through vertex k is shorter than the current shortest path
+                if dist[i][k] + dist[k][j] < dist[i][j]:
+                    # Update the shortest path between vertices i and j
+                    dist[i][j] = dist[i][k] + dist[k][j]
+
+    # Print the final solution (shortest distances between all pairs of vertices)
+    print_solution(dist)
+
+# Assuming you have a print_solution function for displaying the result
+def print_solution(dist):
+    for row in dist:
+        print(row)
+
+# Example usage:
+graph = [
+    [0, 5, float('inf'), 10],
+    [float('inf'), 0, 3, float('inf')],
+    [float('inf'), float('inf'), 0, 1],
+    [float('inf'), float('inf'), float('inf'), 0]
+]
+
+floyd_warshall(graph)
+`;
 class FloydWarshallApp extends Component {
   constructor(props) {
     super(props);
@@ -81,7 +121,6 @@ class FloydWarshallApp extends Component {
   printSolution(dist) {
     const resultMatrix = dist.map((row, i) => (
       <div key={i} className=" flex justify-center gap-4">
-
         {row.map((value, j) => (
           <span key={j}>{value === INF ? "INF " : `${value} `}</span>
         ))}
@@ -131,6 +170,15 @@ class FloydWarshallApp extends Component {
             vertices:
           </p>
           {this.state.resultMatrix}
+          <div className="code-display-container px-2 sm:px-12 my-6">
+            <SyntaxHighlighter
+              language="javascript"
+              style={okaidia}
+              className="code-highlighter"
+            >
+              {pythonCode.trim()}
+            </SyntaxHighlighter>
+          </div>
           <div className="code-display-container px-2 sm:px-12">
             <SyntaxHighlighter
               language="javascript"
@@ -140,6 +188,7 @@ class FloydWarshallApp extends Component {
               {javascriptCode.trim()}
             </SyntaxHighlighter>
           </div>
+        
         </div>
       </div>
     );
